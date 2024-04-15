@@ -2,7 +2,6 @@
 layout: math
 title: "Programming Tips: ビット演算"
 date: 2024-04-14
-use_math: true
 ---
 
 #   導入
