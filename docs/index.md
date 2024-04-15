@@ -1,4 +1,6 @@
-
+---
+layout: default
+---
 
 {%- assign date_format = site.minima.date_format | default: "%Y/%m/%d" -%}
 
