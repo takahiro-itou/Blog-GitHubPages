@@ -1,7 +1,7 @@
 ---
 layout: math
 title: "Programming Tips: ビット演算"
-date: 2024-04-14
+date: 2024-04-16
 ---
 
 #   導入
