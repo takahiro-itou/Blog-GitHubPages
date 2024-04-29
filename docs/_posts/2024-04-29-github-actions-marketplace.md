@@ -16,8 +16,10 @@ date: 2024-04-29
 参考文献に挙げたサイトが分かりやすい。
 
 今回作ったアクション
-- リポジトリ : https://github.com/takahiro-itou/install-cppunit-action
-- マーケット : https://github.com/marketplace/actions/install-cppunit
+- リポジトリ :
+[https://github.com/takahiro-itou/install-cppunit-action][link01]
+- マーケット :
+[https://github.com/marketplace/actions/install-cppunit][link02]
 
 やり方の概要
 
@@ -33,7 +35,15 @@ date: 2024-04-29
 
 # 参考文献
 
-- https://docs.github.com/en/actions/creating-actions
-- https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace
-- https://qiita.com/eggplants/items/ad949f6934fb292a9d4f#name-author-description
-- https://meetup-jp.toast.com/3528#Marketplace
+- [https://docs.github.com/en/actions/creating-actions][link03]
+- [https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace][link04]
+- [https://qiita.com/eggplants/items/ad949f6934fb292a9d4f][link05]
+- [https://meetup-jp.toast.com/3528][link06]
+
+
+[link01]: https://github.com/takahiro-itou/install-cppunit-action
+[link02]: https://github.com/marketplace/actions/install-cppunit
+[link03]: https://docs.github.com/en/actions/creating-actions
+[link04]: https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace
+[link05]: https://qiita.com/eggplants/items/ad949f6934fb292a9d4f
+[link06]: https://meetup-jp.toast.com/3528
