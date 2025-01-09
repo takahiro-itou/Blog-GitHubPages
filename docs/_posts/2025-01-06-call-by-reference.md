@@ -137,4 +137,98 @@ VB.NET の場合は、引数を（本来の意味の）参照渡しにするこ�
 ちなみに VB6 以前は、省略すると ByRef であったので注意が必要。
 
 さらに Structure (構造体) は値型、Class (クラス) は参照型になる。
-そこで以下のようなコードを書いてテストしてみる。
+そこで下記のようなコードを書いてテストしてみる。
+なお、テストコードは以下のリポジトリに保管してある。
+
+
+https://github.com/takahiro-itou/CallByReferenceTest/blob/master/vb/TestApp1/Program.vb
+
+```
+    Public Structure PersonV
+        Public Name As String
+        Public Age As Integer
+    End Structure
+
+    Public Class PersonR
+        Public Name As String
+        Public Age As Integer
+    End Class
+
+    Public Sub PassStructByValue(ByVal p As PersonV)
+        ' 値型を値渡し
+        p.Name = "Alice"
+        p.Age = 20
+
+        p = New PersonV()
+        p.Name = "Bob"
+        p.Age = 25
+    End Sub
+
+    Public Sub PassStructByReference(ByRef p As PersonV)
+        ' 値型を参照渡し
+        p.Name = "Alice"
+        p.Age = 20
+
+        p = New PersonV()
+        p.Name = "Bob"
+        p.Age = 25
+    End Sub
+
+    Public Sub PassClassByValue(ByVal p As PersonR)
+        ' 参照型を値渡し
+        p.Name = "Alice"
+        p.Age = 20
+
+        p = New PersonR()
+        p.Name = "Bob"
+        p.Age = 25
+    End Sub
+
+    Public Sub PassClassByReference(ByRef p As PersonR)
+        ' 参照型を参照渡し
+        p.Name = "Alice"
+        p.Age = 20
+
+        p = New PersonR()
+        p.Name = "Bob"
+        p.Age = 25
+    End Sub
+
+    Sub Main(args As String())
+        Dim p1 As PersonV
+        Dim p2 As PersonR
+
+        Console.WriteLine("CallByValue for Structure")
+        p1.Name = "山田太郎"
+        p1.Age = 30
+        Console.WriteLine("Name = " & p1.Name & ", Age = " & p1.Age)
+        PassStructByValue(p1)
+        Console.WriteLine("Name = " & p1.Name & ", Age = " & p1.Age)
+
+        Console.WriteLine("CallByReference for Structure")
+        p1.Name = "山田太郎"
+        p1.Age = 30
+        Console.WriteLine("Name = " & p1.Name & ", Age = " & p1.Age)
+        PassStructByReference(p1)
+        Console.WriteLine("Name = " & p1.Name & ", Age = " & p1.Age)
+
+        Console.WriteLine("CallByValue for Class")
+        p2 = New PersonR()
+        p2.Name = "山田太郎"
+        p2.Age = 30
+        Console.WriteLine("Name = " & p2.Name & ", Age = " & p2.Age)
+        PassClassByValue(p2)
+        Console.WriteLine("Name = " & p2.Name & ", Age = " & p2.Age)
+        p2 = Nothing
+
+        Console.WriteLine("CallByReference for Class")
+        p2 = New PersonR()
+        p2.Name = "山田太郎"
+        p2.Age = 30
+        Console.WriteLine("Name = " & p2.Name & ", Age = " & p2.Age)
+        PassClassByReference(p2)
+        Console.WriteLine("Name = " & p2.Name & ", Age = " & p2.Age)
+        p2 = Nothing
+
+    End Sub
+```
