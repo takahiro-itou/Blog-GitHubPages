@@ -232,3 +232,28 @@ https://github.com/takahiro-itou/CallByReferenceTest/blob/master/vb/TestApp1/Pro
 
     End Sub
 ```
+
+これを実行すると、
+
+(Fig. 1) ![実行結果](https://github.com/takahiro-itou/takahiro-itou.github.io/blob/master/images/CallByReference-001.jpg?raw=true)
+
+となる。
+
+- まず、１個目の値型を値渡ししているケースでは、
+  関数には値がコピーされて渡されるので Main とは全くの別物。
+  よっていくら仮引数をいじっても Main には影響を与えていない。
+- ２個目は値型を参照渡ししている。
+  参照渡しであるから Main の変数と、仮引数 p は同じ変数であるので、
+  関数内の最後の状態と同じになる。つまり Bob になる。
+- ３個目は、参照型を値渡ししているケース。
+  これは、先ほどまで python や C++ の例と同じである。
+  p が指している先のオブジェクトを弄るだけならその影響を受けるので、
+  まず Alice になる。
+  その後 Bob インスタンスを作って p に代入した時点で、
+  Main とは別物になる。よって Main の p2 は、Alice のまま Bob にはならない。
+- ４個目は、参照型を参照渡ししている。
+  この場合は p = New ... で新しいインスタンスを代入しても
+  そもそも p が参照渡しなので、Main の変数と仮引数 p は同じ変数。
+  よって Main の p2 も、
+  その新しいインスタンスを指すように参照が更新される。
+  よって、このケースは２番目と同じで Bob になる。
