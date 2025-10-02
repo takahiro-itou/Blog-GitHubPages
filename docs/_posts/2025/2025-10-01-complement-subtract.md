@@ -94,4 +94,4 @@ $$
 この引き算では繰り下がりが決して発生しない。
 つまり、それぞれの位ごとに引き算ができればよい。
 
-[以前の記事]({{ site.baseurl }}{% post_url 2024-04-16-bitwise-operators.md %})
+[以前の記事]({{ site.baseurl }}{% post_url 2024/2024-04-16-bitwise-operators %})
